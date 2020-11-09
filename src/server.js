@@ -4,7 +4,7 @@ const { logger } = require('./utils/logger');
 
 const startServer = async (app) => {
   bindRoutes(app);
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 4000;
 
   const server = app.listen(port, (err) => {
     if (err) throw err;

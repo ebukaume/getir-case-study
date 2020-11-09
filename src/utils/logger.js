@@ -10,7 +10,6 @@ const logger = createLogger({
     format.splat(),
     format.json(),
   ),
-  defaultMeta: { service: process.env.SERVICE_NAME },
   transports: [
     new transports.File({ filename: `${logsDir}/error`, level: 'error' }),
     new transports.File({ filename: `${logsDir}/warn`, level: 'warn' }),

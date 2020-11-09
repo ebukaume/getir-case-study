@@ -1,4 +1,4 @@
-const joi = require('@hapi/joi');
+const joi = require('joi');
 const { badRequest } = require('../utils/response');
 
 const customDateValidator = (value) => {
