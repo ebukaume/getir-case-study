@@ -1,7 +1,7 @@
 const { notFound, ok } = require('../utils/response');
 const { recordRouter } = require('./record');
 
-const API_PREFIX = '/api'
+const API_PREFIX = '/api';
 
 const bindRoutes = (app) => {
   app.use(`${API_PREFIX}/record/`, recordRouter);
