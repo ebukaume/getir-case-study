@@ -1,11 +1,5 @@
 <h2 align="center">Getir Case Study</h2>
 
-### Features
-- View Task List
-- Add a new task
-- Delete a task
-- Modify a task
-
 ### Technologies
 
 * Node.js
@@ -13,6 +7,10 @@
 * Mongoose.js
 * Docker - containerization
 * heroku-cli - Deployment
+
+
+### Endpoint
+- POST /records
 
 ### How to Run Locally
 _You need to have docker, node and npm installed_
