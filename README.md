@@ -19,8 +19,9 @@ _You need to have docker, node and npm installed_
 $ git clone git@github.com:ebukaume/getir-case-study.git
 
 $ cd getir-case-study
-
-# run app
+```
+> Run app
+```
 $ npm run docker:start
 ```
 
