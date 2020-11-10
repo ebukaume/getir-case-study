@@ -38,3 +38,5 @@ $ jest
   "maxCount": 2750
 }
 ```
+### Documentation
+Navigate to GET `/api/docs`
