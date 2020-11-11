@@ -25,13 +25,13 @@ $ cd getir-case-study
 $ npm run docker:start
 ```
 
-> How to run the test suite (integration)
+### How to run the test suite (integration)
 1. On a different terminal, start the server.
 
 ```
 $ npm run docker:start
 ```
-2. Run test
+2. Then run the test
 ```
 $ npm run test
 ```
