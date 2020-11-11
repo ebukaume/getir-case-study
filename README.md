@@ -47,3 +47,7 @@ Request body
 ```
 ### Documentation
 GET `/api/v1/docs`
+
+### Deployment
+This API has been deployed on heroku @ `https://getir-case-study-ebuka.herokuapp.com`
+GET `/api/v1/docs`
