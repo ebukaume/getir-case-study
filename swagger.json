@@ -1,0 +1,99 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Getir Case Study",
+    "description": "A simple REST API test by Getir",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://getir-case-study-ebuka.herokuapp.com/api/v1"
+    }
+  ],
+  "paths": {
+    "/records": {
+      "post": {
+        "description": "Lets you fetch records based on sum of counts and createdAt",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "endDate",
+                  "maxCount",
+                  "minCount",
+                  "startDate"
+                ],
+                "type": "object",
+                "properties": {
+                  "startDate": {
+                    "type": "string",
+                    "example": "2015-01-12"
+                  },
+                  "endDate": {
+                    "type": "string",
+                    "example": "2018-01-12"
+                  },
+                  "minCount": {
+                    "type": "integer",
+                    "example": 2700
+                  },
+                  "maxCount": {
+                    "type": "string",
+                    "example": 2800
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved records"
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "msg": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "example": "KYKAKxDr"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2016-11-27T00:30:34.725Z"
+                          },
+                          "totalCount": {
+                            "type": "integer",
+                            "example": 2713
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

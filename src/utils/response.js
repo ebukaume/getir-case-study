@@ -1,54 +1,60 @@
 const logger = require('./logger');
 const { ERROR } = require('./constant');
 
+const RESPONSE_CODE = {
+  success: {
+    code: 0,
+    message: 'Success',
+  },
+  failure: {
+    code: 1,
+    message: 'Failure',
+  },
+};
+
+const failure = {
+  code: RESPONSE_CODE.failure.code,
+  msg: RESPONSE_CODE.failure.message,
+};
+
 const notFound = (res, message) => (
   res.status(404).json({
-    success: false,
+    ...failure,
     error: ERROR.NOT_FOUND,
-    message,
+    detail: message,
   })
 );
 
 const badRequest = (res, message) => (
   res.status(400).json({
-    success: false,
+    ...failure,
     error: ERROR.VALIDATION_ERROR,
-    message,
+    detail: message,
   })
 );
 
-const ok = (res, data) => (
+const ok = (res, records) => (
   res.status(200).json({
-    success: true,
-    data,
+    code: RESPONSE_CODE.success.code,
+    msg: RESPONSE_CODE.success.message,
+    records,
   })
 );
-
-const notAuthorized = (req, res, message) => {
-  logger.warn({
-    message: 'UNAUTHORIZED ACCESS ATTEMPT',
-    source: req.ip,
-  });
-
-  return res.status(401).json({
-    success: false,
-    error: ERROR.AUTHORIZATION_ERROR,
-    message,
-  });
-};
 
 const internalServerError = (req, res, error) => {
+  const errorMessage = error.message || error;
+
   logger.error({
     error: ERROR.INTERNAL_SERVER_ERROR,
     source: req.ip,
-    message: error.message || error,
+    message: errorMessage,
     stack: error.stack,
   });
 
   return res.status(500).json({
-    success: false,
+    ...failure,
     error: ERROR.INTERNAL_SERVER_ERROR,
-    message: error.message || error,
+    detail: errorMessage,
   });
 };
 
@@ -56,6 +62,5 @@ module.exports = {
   ok,
   notFound,
   badRequest,
-  notAuthorized,
   internalServerError,
 };

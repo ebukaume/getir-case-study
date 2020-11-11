@@ -2,7 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
 const compression = require('compression');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const { connectDatabase } = require('./utils/db');
@@ -29,9 +28,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'));
 }
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 connectDatabase()
   .then(() => startServer(app).catch((err) => logger.error(err)))
   .catch((err) => logger.error(err));
+
+module.export = app;

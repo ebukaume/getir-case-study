@@ -1,0 +1,12 @@
+services:
+  web:
+    container_name: getir-case-study
+    restart: always
+    env_file: .env
+    environment:
+      - PORT=$PORT
+      - LOGS_DIRECTORY=$LOGS_DIRECTORY
+      - DB_URL=$DB_URL
+    build: .
+    ports:
+      - '80:4000'
