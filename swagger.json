@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://getir-case-study-ebuka.herokuapp.com/api"
+      "url": "https://getir-case-study-ebuka.herokuapp.com/api/v1"
     }
   ],
   "paths": {

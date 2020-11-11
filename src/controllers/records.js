@@ -1,4 +1,4 @@
-const { fetchRecordsWithinRange } = require('../services/record');
+const { fetchRecordsWithinRange } = require('../services/records');
 const { ok, internalServerError } = require('../utils/response');
 
 const fetchRecords = async (req, res) => {

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { fetchRecords } = require('../controllers/record');
+const { fetchRecords } = require('../controllers/records');
 const { validateRecordFetchRequest } = require('../middleware/validation');
 
 const recordRouter = new Router();

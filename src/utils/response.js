@@ -47,7 +47,7 @@ const internalServerError = (req, res, error) => {
   logger.error({
     error: ERROR.INTERNAL_SERVER_ERROR,
     source: req.ip,
-    message: error.message || error,
+    message: errorMessage,
     stack: error.stack,
   });
 

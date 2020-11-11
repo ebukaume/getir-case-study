@@ -1,4 +1,4 @@
-const RecordModel = require('../models/record');
+const RecordModel = require('../models/records');
 
 const fetchRecordsWithinRange = async ({
   startDate, endDate, minCount, maxCount,

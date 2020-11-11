@@ -26,11 +26,13 @@ $ npm run docker:start
 ```
 
 > How to run the test suite (integration)
+_Start the server first:_ `npm run docker:start`
 ```
-$ jest
+$ npm run test
 ```
-> Make post request to `http://127.0.0.1/api/record` with bellow payload
+> POST `http://127.0.0.1/api/v1/records`
 ```
+Request body
 {
   "startDate": "2015-01-01",
   "endDate": "2018-02-02",
@@ -39,4 +41,4 @@ $ jest
 }
 ```
 ### Documentation
-Navigate to GET `/api/docs`
+GET `/api/v1/docs`
