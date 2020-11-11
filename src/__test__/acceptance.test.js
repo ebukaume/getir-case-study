@@ -1,4 +1,5 @@
 const supertest = require('supertest');
+const moment = require('moment');
 
 const BASE_URL = 'http://localhost:4000/api/v1';
 const request = supertest(BASE_URL);
@@ -99,6 +100,50 @@ describe('POST /records', () => {
       expect(record.key).toBeDefined();
       expect(record.createdAt).toBeDefined();
       expect(record.totalCount).toBeDefined();
+    });
+
+    done();
+  });
+
+  it('returns records with totalCounts between minCount and maxCount - valid request body', async (done) => {
+    const minCount = 1000;
+    const maxCount = 2000;
+
+    const goodRequestBody = {
+      startDate: '1990-01-01',
+      endDate: '2020-12-12',
+      minCount,
+      maxCount,
+    };
+
+    const { body } = await request.post(RECORDS_ENDPOINT).send(goodRequestBody);
+
+    expect(body.code).toEqual(0);
+    expect(body.msg).toEqual('Success');
+    body.records.forEach(({ totalCount }) => {
+      expect(totalCount >= minCount && totalCount <= maxCount).toBe(true);
+    });
+
+    done();
+  });
+
+  it('returns records with createdAt between startDate and endDate - valid request body', async (done) => {
+    const startDate = '2012-01-01';
+    const endDate = '2018-12-12';
+
+    const goodRequestBody = {
+      startDate,
+      endDate,
+      minCount: 1000,
+      maxCount: 3000,
+    };
+
+    const { body } = await request.post(RECORDS_ENDPOINT).send(goodRequestBody);
+
+    expect(body.code).toEqual(0);
+    expect(body.msg).toEqual('Success');
+    body.records.forEach(({ createdAt }) => {
+      expect(moment(createdAt).isBetween(startDate, endDate)).toBe(true);
     });
 
     done();
