@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/record": {
+    "/records": {
       "post": {
         "description": "Lets you fetch records based on sum of counts and createdAt",
         "requestBody": {
