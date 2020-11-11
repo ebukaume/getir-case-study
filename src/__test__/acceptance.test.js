@@ -1,6 +1,6 @@
 const supertest = require('supertest');
 
-const BASE_URL = 'http://localhost/api/v1';
+const BASE_URL = 'http://localhost:4000/api/v1';
 const request = supertest(BASE_URL);
 
 describe('POST /records', () => {
