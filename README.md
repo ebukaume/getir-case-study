@@ -26,8 +26,12 @@ $ npm run docker:start
 ```
 
 > How to run the test suite (integration)
-<br>
-_Start the server first:_ `npm run docker:start`
+1. On a different terminal, start the server.
+
+```
+$ npm run docker:start
+```
+2. Run test
 ```
 $ npm run test
 ```
