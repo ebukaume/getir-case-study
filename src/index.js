@@ -33,5 +33,3 @@ app.use(express.json());
 connectDatabase()
   .then(() => startServer(app).catch((err) => logger.error(err)))
   .catch((err) => logger.error(err));
-
-module.export = app;
